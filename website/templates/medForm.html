@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1>Med Store:</h1>
+    {% block nav%}
+    {% block nav-form %}<strong class="nav-active">Add</strong>{% endblock %}
+    {% endblock%}
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form }}
+        </table>
+        <input type="submit" value="Submit" />
+    </form>
+
+{% endblock %}

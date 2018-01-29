@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+{% load pwa %}
+<html lang="en">
+  <head>
+
+  {% progressive_web_app_meta %}
+
+    
+
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+      <meta name="mobile-web-app-capable" content="yes">
+      <link rel="icon" sizes="192x192" href="{% static '/my_app_id.ico' %}">
+    <title>{% block title %}Okhati App{% endblock %}</title>
+    <style type="text/css">
+      .wrapper{
+        display:grid;
+        grid-template-columns:100px 100px 100px 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Okhati</h1>
+    </header>
+    <main>
+      {% block content %}
+      {% block nav%}
+      <ul id="nav">
+      <li>{%block nav-home%}<a href="{% url home%}">Home</a>{% endblock%}</li>
+      <li>{%block nav-myStore%}<a href="{% url myStore%}">My Store</a>{% endblock%}</li>
+      <li>{%block nav-form%}<a href="{% url formy%}">Add</a>{% endblock%}</li>
+      <li>{%block nav-Logout%}<a href="{% url logout%}">Logout</a>{% endblock%}</li>
+        
+      </ul>
+
+      {% endblock %}
+      
+      {% endblock %}
+    </main>
+  </body>
+</html>
